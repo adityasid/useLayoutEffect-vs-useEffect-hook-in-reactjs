@@ -2,7 +2,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  Link
 } from "react-router-dom";
 
 import UseLayoutEffect from './components/UseLayoutEffect'
@@ -11,17 +12,30 @@ import UseEffect from "./components/UseEffect"
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/useLayoutEffect">
-          <UseLayoutEffect />
-        </Route>
-        <Route exact path="/useEffect">
-          <UseEffect />
-        </Route>
+      <div>
+        <ul>
+          <li>
+            <Link to="/useLayoutEffect">useLayoutEffect</Link>
+          </li>
+          <li>
+            <Link to="/useEffect">useEffect</Link>
+          </li>
+        </ul>
 
-        <Redirect to='/useLayoutEffect' />
+        <hr />
+        <Switch>
+          <Route exact path="/useLayoutEffect">
+            <UseLayoutEffect />
+          </Route>
+          <Route exact path="/useEffect">
+            <UseEffect />
+          </Route>
 
-      </Switch>
+          <Redirect to='/useLayoutEffect' />
+
+        </Switch>
+
+      </div>
     </Router>
   );
 }
